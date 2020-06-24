@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>黑白棋</title>
+  </head>
+  <style>
+    body {
+      width: 100vh;
+      height: 100vh;
+      background-image: linear-gradient(to right, #81ecec, #74b9ff, #a29bfe);
+    }
+    #box {
+      width: 416px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .container {
+      background-color: green;
+    }
+    .row {
+      vertical-align: bottom;
+      border: 1px solid white;
+      background-color: green;
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+    }
+    #canDo:hover {
+      background-color: rgb(0, 200, 0);
+    }
+    #tips {
+      color: rgb(36, 36, 252);
+      background-color: rgb(0, 200, 0);
+      text-align: center;
+      padding: 5px;
+    }
+    #situation {
+      display: flex;
+      text-align: center;
+    }
+    .black {
+      flex: 1;
+      color: rgb(10, 10, 10);
+      background-color: whitesmoke;
+    }
+    .white {
+      flex: 1;
+      color: whitesmoke;
+      background-color: rgb(10, 10, 10);
+    }
+  </style>
+  <body>
+    <div id="box">
+      <div id="situation">
+        <div class="white">白子：2</div>
+        <div class="black">黑子：2</div>
+      </div>
+      <div id="container"></div>
+      <div id="tips"></div>
+    </div>
+  </body>
+  <script>
+    let board = [
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 2, 1, 0, 0, 0],
+      [0, 0, 0, 1, 2, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+    ]
+    let container = document.getElementById('container')
+    let tips = document.getElementById('tips')
+    //设置黑子还是白子先 黑子=2 白子=1
+    let color = 2
+    let first = true
+    let canMoveArea = [] //保存当前方可落子坐标
+    let player //存储player样式
+    let isGoOn = false //游戏是否能继续
+    let black = 0 //记录黑方棋子数
+    let white = 0 //记录白方棋子数
+    rander()
+    function rander() {
+      container.innerHTML = ''
+      container.style.width = 52 * 8 + 'px'
+      container.style.height = 52 * 8 + 'px'
+      for (let y = 0; y < 8; y++) {
+        for (let x = 0; x < 8; x++) {
+          let div = document.createElement('div')
+          const ox = x
+          const oy = y
+          //使用预处理数据 如果点击了不可反转坐标 就不进行操作
+          div.addEventListener('mouseover', () => {
+            //使用预处理数据 如果是可点击区域给其添加一个class用于用户提示
+            if (
+              canMoveArea.find(
+                (position) => position[0] === ox && position[1] === oy
+              )
+            ) {
+              div.id = 'canDo'
+            }
+          })
+          div.addEventListener('click', () => {
+            //dom上有子后点击就不进行操作
+            if (board[oy][ox] !== 0) {
+              return
+            }
+            //使用预处理数据 如果点击了不可反转坐标 就不进行操作
+            if (
+              !canMoveArea.find(
+                (position) => position[0] === ox && position[1] === oy
+              )
+            ) {
+              return
+            }
+            canMoveArea = [] //预处理结果用完后清除预处理数据
+            reverse(ox, oy)
+            //预先寻找能吃子位置
+            getCanMoveArea()
+            //提示当前回合信息
+            currentPlayer()
+            //是否出现了赢家
+            whoWin()
+            //重新渲染棋盘
+            rander()
+          })
+          div.className = 'row'
+          container.appendChild(div)
+          if (board[y][x] !== 0) {
+            addDisc(div, x, y)
+          }
+        }
+        //每八列换行
+        container.appendChild(document.createElement('br'))
+      }
+      //第一次预先寻找能吃子位置
+      if (first) {
+        getCanMoveArea()
+        first = false
+        //提示当前回合信息
+        currentPlayer()
+      }
+    }
+    function addDisc(el, x, y) {
+      let whiteDisc =
+        'background-color:white;width:40px;height:40px;border-radius:20px;margin:5px 5px;'
+      let blackDisc =
+        'background-color:black;width:40px;height:40px;border-radius:20px;margin:5px 5px;'
+      if (board[y][x] === 1) {
+        let disc = document.createElement('div')
+        disc.style = whiteDisc
+        el.appendChild(disc)
+      }
+      if (board[y][x] === 2) {
+        let disc = document.createElement('div')
+        disc.style = blackDisc
+        el.appendChild(disc)
+      }
+    }
+    function reverse(ox, oy, isReverse = true) {
+      let x = ox
+      let y = oy
+      let notSameColor = false
+      let canMove = false
+      let canMoveCopy = [] //用于记录可翻转的白子坐标
+
+      //上下左右吃子判断
+      {
+        //左边吃子
+        while (--x >= 0) {
+          if (board[y][x] === 0) {
+            break
+          }
+          if (board[y][x] === color) {
+            //有相反的子并且已同样的子结束就能反转
+            if (notSameColor) {
+              canMove = true
+              canMoveCopy.push(ox)
+              canMoveCopy.push(oy)
+            }
+            break
+          }
+          if (board[y][x] === 3 - color) {
+            //是否有相反的子
+            notSameColor = true
+          }
+        }
+        if (canMove && isReverse) {
+          while (++x <= ox) {
+            board[y][x] = color
+          }
+        }
+        restata()
+        //右边吃子
+        while (++x <= 7) {
+          if (board[y][x] === 0) {
+            break
+          }
+          if (board[y][x] === color) {
+            if (notSameColor) {
+              canMove = true
+              canMoveCopy.push(ox)
+              canMoveCopy.push(oy)
+            }
+            break
+          }
+          if (board[y][x] === 3 - color) {
+            notSameColor = true
+          }
+        }
+        if (canMove && isReverse) {
+          while (--x >= ox) {
+            board[y][x] = color
+          }
+        }
+        restata()
+        //上边吃子
+        while (--y >= 0) {
+          if (board[y][x] === 0) {
+            break
+          }
+          if (board[y][x] === color) {
+            if (notSameColor) {
+              canMove = true
+              canMoveCopy.push(ox)
+              canMoveCopy.push(oy)
+            }
+            break
+          }
+          if (board[y][x] === 3 - color) {
+            notSameColor = true
+          }
+        }
+        if (canMove && isReverse) {
+          while (++y <= oy) {
+            board[y][x] = color
+          }
+        }
+        restata()
+
+        //下边吃子
+        while (++y <= 7) {
+          if (board[y][x] === 0) {
+            break
+          }
+          if (board[y][x] === color) {
+            if (notSameColor) {
+              canMove = true
+              canMoveCopy.push(ox)
+              canMoveCopy.push(oy)
+            }
+            break
+          }
+          if (board[y][x] === 3 - color) {
+            notSameColor = true
+          }
+        }
+        if (canMove && isReverse) {
+          while (--y >= oy) {
+            board[y][x] = color
+          }
+        }
+        restata()
+      }
+      //斜角吃子判断
+      {
+        //右上吃子判断
+        while (--y >= 0) {
+          ++x
+          if (board[y][x] === 0) {
+            break
+          }
+          if (board[y][x] === color) {
+            if (notSameColor) {
+              canMove = true
+              canMoveCopy.push(ox)
+              canMoveCopy.push(oy)
+            }
+            break
+          }
+          if (board[y][x] === 3 - color) {
+            notSameColor = true
+          }
+        }
+        if (canMove && isReverse) {
+          while (++y <= oy) {
+            --x
+            board[y][x] = color
+          }
+        }
+        restata()
+        //左上吃子判断
+        while (--y >= 0) {
+          --x
+          if (board[y][x] === 0) {
+            break
+          }
+          if (board[y][x] === color) {
+            if (notSameColor) {
+              canMove = true
+              canMoveCopy.push(ox)
+              canMoveCopy.push(oy)
+            }
+            break
+          }
+          if (board[y][x] === 3 - color) {
+            notSameColor = true
+          }
+        }
+        if (canMove && isReverse) {
+          while (++y <= oy) {
+            ++x
+            board[y][x] = color
+          }
+        }
+        restata()
+
+        //右下吃子判断
+        while (++y <= 7) {
+          ++x
+          if (board[y][x] === 0) {
+            break
+          }
+          if (board[y][x] === color) {
+            if (notSameColor) {
+              canMove = true
+              canMoveCopy.push(ox)
+              canMoveCopy.push(oy)
+            }
+            break
+          }
+          if (board[y][x] === 3 - color) {
+            notSameColor = true
+          }
+        }
+        if (canMove && isReverse) {
+          while (--y >= oy) {
+            --x
+            board[y][x] = color
+          }
+        }
+        restata()
+        //左下吃子判断
+        while (++y <= 7) {
+          --x
+          if (board[y][x] === 0) {
+            break
+          }
+          if (board[y][x] === color) {
+            if (notSameColor) {
+              canMove = true
+              canMoveCopy.push(ox)
+              canMoveCopy.push(oy)
+            }
+            break
+          }
+          if (board[y][x] === 3 - color) {
+            notSameColor = true
+          }
+        }
+        if (canMove && isReverse) {
+          while (--y >= oy) {
+            ++x
+            board[y][x] = color
+          }
+        }
+        restata()
+      }
+      if (isReverse) {
+        board[oy][ox] = color
+        color = 3 - color
+      } else {
+        if (canMoveCopy.length > 0) return canMoveCopy
+      }
+      //恢复棋子状态函数
+      function restata() {
+        x = ox
+        y = oy
+        notSameColor = false
+        canMove = false
+      }
+    }
+    //寻找吃子位置并存到一个数组
+    function getCanMoveArea() {
+      for (let y = 0; y < 8; y++) {
+        for (let x = 0; x < 8; x++) {
+          if (board[y][x] === 0) {
+            board[y][x] = color
+            if (reverse(x, y, false) !== undefined) {
+              canMoveArea.push(reverse(x, y, false))
+            }
+            board[y][x] = 0
+          }
+        }
+      }
+    }
+    //当前回合
+
+    function currentPlayer() {
+      if (color === 1) {
+        player = "<span style='color:white;'>白子</span>"
+      } else {
+        player = "<span style='color:black;'>黑子</span>"
+      }
+      if (canMoveArea.length === 0) {
+        //若当前颜色棋子无可落子区域转换成相反颜色回合并获取可落子区域
+        tips.innerHTML = '当前' + player + '无可落子区域，变为对手回合'
+        color = 3 - color
+        getCanMoveArea()
+      } else if (canMoveArea.length !== 0) {
+        tips.innerHTML = '当前为' + player + '回合'
+      }
+    }
+    function whoWin() {
+      for (let y of board) {
+        for (let x of y) {
+          if (x === 0) {
+            isGoOn = true
+          }
+          if (x === 1) {
+            white++
+          }
+          if (x === 2) {
+            black++
+          }
+        }
+      }
+      document.getElementsByClassName('white')[0].innerHTML = '白子：' + white
+      document.getElementsByClassName('black')[0].innerHTML = '黑子：' + black
+      if (isGoOn === false) {
+        if (white > black) {
+          alert('白子胜利！')
+        } else if (white < black) {
+          alert('黑子胜利！')
+        } else {
+          alert('哎呀，平局了！')
+        }
+      }
+      isGoOn = false //重置是否能继续游戏状态
+      //重置黑子和白子数量
+      black = 0
+      white = 0
+    }
+    /*
+    当前问题时当双方均不可落子
+    
+    */
+  </script>
+</html>
