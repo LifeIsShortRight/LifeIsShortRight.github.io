@@ -1,0 +1,1 @@
+# LifeIsShortRight.github.io
