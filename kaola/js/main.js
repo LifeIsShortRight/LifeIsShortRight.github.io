@@ -12,3 +12,6 @@ window.onresize = () => {
   leftIndexDisplay()
   rightIndexDisplay()
 }
+function bind(){
+  
+}

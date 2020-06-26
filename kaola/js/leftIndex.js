@@ -6,8 +6,10 @@ function mainLeftIndex() {
   leftIndex = document.getElementById('leftIndex')
   rightIndex = document.getElementById('rightIndex')
   leftIndexDisplay()
+
   window.addEventListener('scroll', () => {
-    if (newUserGift.getBoundingClientRect().y < 0) {
+    let top = document.documentElement.scrollTop || document.body.scrollTop
+    if (newUserGift.offsetTop <= top) {
       if (parseInt(leftIndex.style.top) !== 66) {
         leftIndex.style.position = 'fixed'
         leftIndex.style.top = '66px'
@@ -44,7 +46,7 @@ function rightIndexDisplay() {
 }
 function leftIndexDisplay() {
   let leftIndex = document.getElementById('leftIndex')
-  if (document.body.getBoundingClientRect().width <= 1090) {
+  if (document.body.offsetWidth <= 1090) {
     leftIndex.style.display = 'none'
   } else {
     leftIndex.style.display = 'block'

@@ -5,7 +5,8 @@ function mainLogoAndSearch() {
   logoAndSearch = document.getElementById('logoAndSearch')
   logoAndSearchFixed = document.getElementById('logoAndSearchFixed')
   window.addEventListener('scroll', () => {
-    if (lRect().y < 0) {
+    let top = document.documentElement.scrollTop || document.body.scrollTop
+    if (logoAndSearch.offsetTop <= top) {
       logoAndSearch.children[0].style.display = 'none'
       logoAndSearchFixed.style.display = 'block'
       // logoAndSearchFixed.style.top = logoAndSearch.offsetTop - lRect().y + 'px'
@@ -14,7 +15,4 @@ function mainLogoAndSearch() {
       logoAndSearchFixed.style.display = 'none'
     }
   })
-}
-function lRect() {
-  return logoAndSearch.getBoundingClientRect()
 }
