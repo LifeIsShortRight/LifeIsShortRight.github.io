@@ -1,0 +1,13 @@
+@charset 'utf-8';
+
+#topAd{
+  min-width: 1100px;
+  overflow: hidden;
+}
+#topAd img{
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+
+}

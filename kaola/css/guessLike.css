@@ -1,0 +1,81 @@
+@charset 'utf-8';
+
+
+#guessLike section{
+  width: 1100px;
+  margin: 0 auto;
+}
+#guessLike section h2{
+  font-size: 22px;
+  padding: 20px 0 5px;
+  margin: 0;
+}
+#guessLike section h2 span{
+  font-size: 13px;
+  font-weight: normal;
+  color: #666;
+  margin-left: 12px;
+}
+#guessLike section ul{
+  height: 382px;
+  text-align: justify;
+  text-align-last: justify;
+}
+#guessLike section ul li {
+  position: relative;
+  display: inline-block;
+  width: 260px;
+  height: 382px;
+  text-align: left;
+  text-align-last: left;
+}
+#guessLike section ul li a:hover{
+  text-decoration: underline;
+}
+#guessLike section ul li a span{
+  display: block;
+  height: 260px;
+  box-sizing: border-box;
+  border: 1px solid #e9e9e9;
+  background-color: #fff;
+  background-image: url('../img/guessLike/01_800_800.JPG');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 180px;
+}
+#guessLike section ul li a .span2{
+  background-image: url('');
+}
+#guessLike section ul li a .description{
+  display:block;
+  width: 224px;
+  line-height: 24px;
+  font-size: 16px !important;
+  font-weight: bold;
+  margin-top: 5px;
+}
+#guessLike section ul li .price{
+  position: relative;
+  display: block;
+  padding-right: 15px;
+  margin-top: 5px;
+}
+#guessLike section ul li .price .currentPrice{
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+}
+#guessLike section ul li .price .oldPrice{
+  float: left;
+  font-size: 12px;
+  color: #999;
+  padding-left: 10px;
+  margin-top: 8px;
+}
+#guessLike section ul li .evaluation{
+  color: #999;
+  float: right;
+  padding-right: 15px;
+  margin-top: 8px;
+
+}

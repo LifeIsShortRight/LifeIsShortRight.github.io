@@ -1,0 +1,182 @@
+@charset 'utf-8';
+
+#footer {
+  background-color: #fff;
+}
+#footer .wrap {
+  width: 1100px;
+  margin: 0 auto;
+}
+#footer .pledge {
+  position: relative;
+  height: 147px;
+  /* line-height: 147px; */
+}
+#footer .pledge ul {
+  height: 147px;
+}
+#footer .pledge li {
+  width: 233px;
+  margin-left: 42px;
+  float: left;
+  position: relative;
+  top: calc(147px * 0.5);
+  transform: translate(0, -50%);
+}
+#footer .pledge li div {
+  float: left;
+}
+#footer .pledge li .icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #d6d6d6;
+  text-align: center;
+  line-height: 44px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 12px;
+}
+#footer .pledge li .text strong {
+  display: block;
+  font-size: 18px;
+}
+#footer .pledge li .text span {
+  display: block;
+  font-size: 14px;
+}
+#footer .guideList {
+  height: 128px;
+  padding: 45px 0 90px;
+}
+#footer .guideList li {
+  float: left;
+  width: 80px;
+  height: 128px;
+  padding-left: 21px;
+}
+#footer .guideList li dl {
+  font-size: 18px;
+  margin: -4px 0 10px;
+}
+#footer .guideList li dd {
+  line-height: 28.8px;
+}
+#footer .guideList li dd a:hover {
+  text-decoration: underline;
+}
+#footer .guideList .first {
+  width: 258px;
+  box-sizing: border-box;
+  padding-right: 40px;
+  padding-left: 0;
+}
+#footer .guideList .first .logo {
+  display: block;
+  height: 43px;
+  margin-bottom: 20px;
+  background-image: url('../img/logoAndSearch/logo.png');
+  background-repeat: no-repeat;
+  background-size: 220px auto;
+}
+#footer .guideList .first .favoriteWe a {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border: 1px solid red;
+  border-radius: 50%;
+  margin-left: 10px;
+  vertical-align: middle;
+  background-image: url('../img/sprite/sprite.png');
+  background-repeat: no-repeat;
+  background-position: -753px -324px;
+}
+#footer .guideList .first .favoriteWe a .QRCode {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 45px;
+  transform: translate(-50%);
+  padding: 5px 5px 0;
+  background-color: #fff;
+  border: 1px solid #ededee;
+  color: #333;
+}
+#footer .guideList .first .favoriteWe a .QRCode img {
+  display: block;
+  width: 116px;
+  margin: 0 auto;
+}
+#footer .guideList .first .favoriteWe a .QRCode .text {
+  display: block;
+  text-align: center;
+  padding: 4px 0;
+  line-height: 18px;
+  font-weight: 400;
+}
+#footer .guideList .first .favoriteWe a .QRCode .arrow {
+  position: absolute;
+  left: 58px;
+  top: -6.14px;
+  display: inline-block;
+  margin: 0 auto;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border: 1px solid#ededee;
+  border-left: none;
+  border-bottom: none;
+  transform: rotate(-45deg);
+}
+#footer .guideList .first .favoriteWe a:hover .QRCode {
+  display: block;
+}
+#footer .guideList .first .favoriteWe .weChat {
+  background-image: url('../img/sprite/sprite.png');
+  background-position: -753px -269px;
+}
+#footer .guideList .end {
+  width: 108px;
+  height: 108px;
+  text-align: center;
+  padding-left: 0px;
+  margin: -6px 6px 0 10px;
+}
+#footer .guideList .end img {
+  display: block;
+  height: 108px;
+  width: 108px;
+}
+#footer .copyRight {
+  color: #c2c2c2;
+  background-color: #333333;
+  padding: 20px 0;
+  line-height: 26px;
+  text-align: center;
+}
+#footer .copyRight a {
+  color: #c2c2c2;
+}
+#footer .copyRight a:hover{
+  text-decoration: underline;
+}
+#footer .copyRight span{
+  margin-left: 20px;
+}
+#footer .copyRight .record span{
+  margin-left: 5px;
+}
+#footer .copyRight .record img{
+  margin-top: -2px;
+  vertical-align: middle;
+}
+#footer .copyRight .id img,
+#footer .copyRight .license img
+{
+  height: 30px;
+  margin-top: 5px;
+}
+#footer .copyRight .license img{
+  margin-left: 10px;
+}

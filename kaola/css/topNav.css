@@ -1,0 +1,156 @@
+@charset 'utf-8';
+
+#topNav {
+  position: relative;
+  background-color: #000000;
+  border-bottom: 1px solid #ededee;
+  z-index: 99;
+}
+#topNav .topNavWrap {
+  width: 1090px;
+  height: 30px;
+  line-height: 30px;
+  color: #999;
+
+  margin: 0 auto 0;
+}
+#topNav a {
+  color: #999;
+}
+#topNav a:hover {
+  color: white;
+}
+#topNav .left {
+  float: left;
+}
+#topNav .left a {
+  position: relative;
+  margin-left: 25px;
+}
+#topNav .left .mApp .QRCode {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 35px;
+  transform: translate(-50%);
+  padding: 5px 5px 0;
+  background-color: #fff;
+  border: 1px solid #ededee;
+  color: #333;
+}
+#topNav .left .mApp .QRCode img {
+  display: block;
+  width: 116px;
+  margin: 0 auto;
+}
+#topNav .left .mApp .QRCode .text {
+  display: block;
+  text-align: center;
+  padding: 4px 0;
+  line-height: 18px;
+  font-weight: 400;
+}
+#topNav .left .mApp .QRCode .arrow {
+  position: absolute;
+  left: 58px;
+  top: -6.14px;
+  display: inline-block;
+  margin: 0 auto;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border: 1px solid#ededee;
+  border-left: none;
+  border-bottom: none;
+  transform: rotate(-45deg);
+}
+#topNav .left .mApp:hover .QRCode {
+  display: block;
+}
+#topNav .right {
+  float: right;
+}
+#topNav .right > a {
+  padding-right: 14px;
+  padding-left: 8px;
+}
+#topNav .right .holderService {
+  display: inline-block;
+  position: relative;
+  height: 31px;
+}
+#topNav .right .holderService > a {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  padding-right: 24px;
+  padding-left: 16px;
+}
+#topNav .right .holderService:hover > a {
+  color: #ff1e32;
+  background-color: #fff;
+}
+#topNav .right .holderService:hover .arr {
+  border-top-color: #ff1e32;
+  transform-origin: 50% 1px;
+  transform: rotate(180deg);
+}
+#topNav .right .holderService div {
+  display: none;
+  position: absolute;
+  top: 31px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+  padding: 4px 15px 12px 14px;
+}
+#topNav .right .holderService:hover .pMenu,
+#topNav .right .holderService:hover .cService,
+#topNav .right .holderService:hover .payService,
+#topNav .right .holderService:hover .cProtection,
+#topNav .right .holderService:hover .more {
+  display: block;
+}
+#topNav .right .holderService .cService a {
+  position: relative;
+}
+#topNav .right .holderService .cService li i {
+  height: 14px;
+  width: 14px;
+  display: inline-block;
+  background-image: url('../img/sprite/sprite.png');
+  position: absolute;
+  left: 0;
+  top: 14px;
+  transform: translate(0, -50%);
+}
+#topNav .right .holderService .cService li span {
+  display: inline-block;
+  position: relative;
+  left: 18px;
+  height: 28px;
+  line-height: 28px;
+}
+#topNav .right .holderService .cService .icon1 {
+  background-position: -5px -290px;
+}
+#topNav .right .holderService .cService .icon2 {
+  background-position: -5px -324px;
+}
+#topNav .right .holderService .cService .icon3 {
+  background-image: url('../img/cService/01.png');
+  background-size: 14px 14px;
+  background-repeat: no-repeat;
+}
+#topNav .right .holderService .cService .icon4 {
+  background-position: -5px -351px;
+}
+#topNav .right .holderService div a {
+  display: inline-block;
+  color: #666666;
+  height: 28px;
+  line-height: 28px;
+}
+#topNav .right .holderService div li:hover a {
+  color: #ff1e32;
+}

@@ -1,0 +1,13 @@
+
+#newUserGift{
+  margin-top: 20px;
+}
+#newUserGift a {
+  display: block;
+  width: 1090px;
+  height: 308px;
+  margin: 0 auto;
+  background-image: url('../img/newUserGift/bcg_1920_308.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}

@@ -1,0 +1,101 @@
+@charset 'utf-8';
+
+#logoAndSearchFixed {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0,0,0,.2)
+}
+#logoAndSearchFixed .wrap {
+  position: relative;
+  width: 1090px;
+  height: 50px;
+  margin: 0 auto;
+}
+#logoAndSearchFixed .left {
+  height: 40px;
+  width: 162px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  background-image: url('../img/logoAndSearch/logo.png');
+  background-repeat: no-repeat;
+  background-size: auto 40px;
+}
+#logoAndSearchFixed .center {
+  position: absolute;
+  left: 343px;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 510px;
+  height: 40px;
+  padding-left: 1px;
+  background-color: #ff2337;
+  border-radius: 40px;
+}
+#logoAndSearchFixed .center .wrap {
+  height: 36px;
+  width: 508px;
+  position: relative;
+  background-color: #fff;
+  margin: 2px 1px;
+  border-radius: 36px;
+}
+#logoAndSearchFixed .center .wrap input {
+  width: 410px;
+  height: 24px;
+  line-height: 24px;
+  border: 0;
+  font-size: 13px;
+  font-style: italic;
+  margin: 6px 0 6px 28px;
+  outline: none;
+}
+#logoAndSearchFixed .center .wrap a {
+  display: inline-block;
+  width: 60px;
+  height: 36px;
+  background: #ff2337;
+  background-image: linear-gradient(270deg, #ff2e64, #ff0003);
+  border-radius: 36px;
+  position: absolute;
+  right: -1px;
+  top: 0;
+}
+#logoAndSearchFixed .center .wrap a:hover {
+  background: #ff2d59;
+  background-image: linear-gradient(270deg, #f85a7d, #ff3234);
+}
+
+#logoAndSearchFixed .center .wrap a .ricon {
+  display: inline-block;
+  height: 36px;
+  width: 48px;
+  line-height: 36px;
+  text-align: center;
+  background-image: url('../img/logoAndSearch/serarchIcon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#logoAndSearchFixed .center .wrap .licon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(0, -50%);
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-image: url('../img/sprite/sprite.png');
+  background-repeat: no-repeat;
+  background-position: -466px -667px;
+}

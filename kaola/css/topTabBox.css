@@ -1,0 +1,339 @@
+@charset 'utf-8';
+
+#topTabBox {
+  position: relative;
+  font-size: 14px;
+  overflow: hidden;
+}
+#topTabBox .carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 41px;
+  left: 0;
+  z-index: 0;
+}
+#topTabBox .carousel .dots {
+  position: absolute;
+  left: 35%;
+  top: 410px;
+  transform: translate(-50%);
+  color: #fff;
+  z-index: 1;
+}
+#topTabBox .carousel .dots li {
+  display: inline-block;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  margin: 5px;
+}
+#topTabBox .carousel img {
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  animation: fade 1.5s;
+}
+#topTabBox .carousel .dots li.active {
+  border-color: #ff1e21;
+}
+@keyframes fade {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#topTabBox .carousel .prevNext {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+#topTabBox .carousel:hover .prevNext {
+  display: block;
+}
+#topTabBox .carousel .prevNext a {
+  cursor: pointer;
+  user-select: none;
+  width: 34px;
+  height: 68px;
+  font-size: 45px;
+  color: #ddd;
+  padding: 0 2.5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  transform: translate(0, -75%);
+}
+#topTabBox .carousel .prevNext a:hover {
+  color: #fff;
+}
+#topTabBox .carousel .prevNext .left {
+  position: absolute;
+  top: 0;
+  right: 335px;
+}
+#topTabBox .carousel .prevNext .right {
+  position: absolute;
+  top: 0;
+  left: 500px;
+}
+#topTabBox .header {
+  position: relative;
+  height: 40px;
+  zoom: 1;
+  width: 1090px;
+  margin: 0 auto;
+  line-height: 40px;
+}
+#topTabBox .header .left {
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  width: 164px;
+  text-align: left;
+  color: #fff;
+  background: linear-gradient(90deg, red, #ff3264);
+  border-bottom: 1px solid #ff5160;
+}
+#topTabBox .header .left .lineIcon {
+  display: inline-block;
+  margin: 0 24px 0 15px;
+  width: 15px;
+  height: 12px;
+  background-color: red;
+}
+#topTabBox .header .left .lineIcon span {
+  display: block;
+  border-top: 2px solid #ddd;
+  margin-bottom: 3px;
+}
+#topTabBox .header .right {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 25px;
+}
+#topTabBox .header .right li {
+  display: inline-block;
+  padding: 0 20px;
+}
+#topTabBox .header .right li a {
+  float: left;
+}
+#topTabBox .header .right li a.index {
+  color: #ff1e32;
+}
+#topTabBox .header .right li a:hover {
+  color: #ff1e32;
+}
+#topTabBox .content {
+  /* width: 1090px; */
+  display: inline-block;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  top: 41px;
+  z-index: 1;
+}
+#topTabBox .content ul {
+  display: inline-block;
+  background: linear-gradient(to right, #f00, #ff3264);
+  padding-left: 1px;
+  padding-right: 3px;
+}
+#topTabBox .content ul li {
+  /* background: linear-gradient(90deg, red, #ff3264); */
+  padding: 0 3px 0 10px;
+}
+#topTabBox .content ul li:hover {
+  background-color: #fff;
+}
+#topTabBox .content ul li:hover a {
+  color: #ff1e32;
+  border-bottom: 1px solid#fff;
+}
+#topTabBox .content a {
+  display: block;
+  border-bottom: 1px solid #ff5160;
+  height: 37.3px;
+  line-height: 37.3px;
+  text-align: left;
+  color: #fff;
+  /* background-color: #fff; */
+}
+/* 背景图标 */
+#topTabBox .content a i {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+  margin: 0 20px 0 4px;
+  background-image: url('../img/topBox/01thumbna_40_40.png');
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: center;
+}
+#topTabBox .content a .icon2 {
+  background-image: url('../img/topBox/02thumbna_40_40.png');
+}
+#topTabBox .content a .icon3 {
+  background-image: url('../img/topBox/03thumbna_40_40.png');
+}
+#topTabBox .content a .icon4 {
+  background-image: url('../img/topBox/04thumbna_40_40.png');
+}
+#topTabBox .content a .icon5 {
+  background-image: url('../img/topBox/05thumbna_40_40.png');
+}
+#topTabBox .content a .icon6 {
+  background-image: url('../img/topBox/06thumbna_40_40.png');
+}
+#topTabBox .content a .icon7 {
+  background-image: url('../img/topBox/07thumbna_40_40.png');
+}
+#topTabBox .content a .icon8 {
+  background-image: url('../img/topBox/08thumbna_40_40.png');
+}
+#topTabBox .content a .icon9 {
+  background-image: url('../img/topBox/09thumbna_40_40.png');
+}
+#topTabBox .content a .icon10 {
+  background-image: url('../img/topBox/10thumbna_40_40.png');
+}
+#topTabBox .content a .icon11 {
+  background-image: url('../img/topBox/11thumbna_40_40.png');
+}
+#topTabBox .content a .icon12 {
+  background-image: url('../img/topBox/12thumbna_40_40.png');
+}
+#topTabBox .content ul li:hover a .icon1 {
+  background-image: url('../img/topBox/01thumbna_40_40_active.png');
+}
+#topTabBox .content ul li:hover a .icon2 {
+  background-image: url('../img/topBox/02thumbna_40_40_active.png');
+}
+#topTabBox .content ul li:hover a .icon3 {
+  background-image: url('../img/topBox/03thumbna_40_40_active.png');
+}
+#topTabBox .content ul li:hover a .icon4 {
+  background-image: url('../img/topBox/04thumbna_40_40_active.png');
+}
+#topTabBox .content ul li:hover a .icon5 {
+  background-image: url('../img/topBox/05thumbna_40_40_active.png');
+}
+#topTabBox .content ul li:hover a .icon6 {
+  background-image: url('../img/topBox/06thumbna_40_40_active.png');
+}
+#topTabBox .content ul li:hover a .icon7 {
+  background-image: url('../img/topBox/07thumbna_40_40_active.png');
+}
+#topTabBox .content ul li:hover a .icon8 {
+  background-image: url('../img/topBox/08thumbna_40_40_active.png');
+}
+#topTabBox .content ul li:hover a .icon9 {
+  background-image: url('../img/topBox/09thumbna_40_40_active.png');
+}
+#topTabBox .content ul li:hover a .icon10 {
+  background-image: url('../img/topBox/10thumbna_40_40_active.png');
+}
+#topTabBox .content ul li:hover a .icon11 {
+  background-image: url('../img/topBox/11thumbna_40_40_active.png');
+}
+#topTabBox .content ul li:hover a .icon12 {
+  background-image: url('../img/topBox/12thumbna_40_40_active.png');
+}
+#topTabBox .content a strong {
+  display: inline-block;
+  vertical-align: middle;
+  height: 30px;
+  width: 70px;
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: normal;
+}
+#topTabBox .content a span {
+  display: inline-block;
+  vertical-align: middle;
+  color: #ff96ad;
+  width: 16px;
+  font-size: 19px;
+  margin-right: 9.2px;
+}
+#topTabBox .footer {
+  position: relative;
+  margin-top: 460.5px;
+  height: 45px;
+  line-height: 45px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+}
+#topTabBox .blur {
+  height: 45px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 460.5;
+  filter: blur(8px);
+  background-image: url('../img/topBox/carousel/01.jpg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  z-index: 1;
+}
+#topTabBox .footer section {
+  width: 1090px;
+  margin: 0 auto;
+  position: relative;
+}
+#topTabBox .footer section .left a {
+  margin-right: 40px;
+  color: #fff;
+}
+#topTabBox .footer section a:hover {
+  text-decoration: underline #fff;
+}
+#topTabBox .footer section .left a i {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  height: 22px;
+  width: 22px;
+  font-size: 12px;
+  font-style: normal;
+  margin-right: 7px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+#topTabBox .footer section .left a i span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#topTabBox .footer section .left a span {
+  color: #fff;
+  font-size: 12px;
+}
+#topTabBox .footer section .right {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#topTabBox .footer section .right i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+  background-image: url(../img/topBox/bottoIcon.png);
+  background-position: center center;
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+}
+#topTabBox .footer section .right a {
+  color: #fff;
+  font-size: 12px;
+}

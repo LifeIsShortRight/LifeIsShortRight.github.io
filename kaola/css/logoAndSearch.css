@@ -1,0 +1,119 @@
+@charset 'utf-8';
+
+#logoAndSearch{
+  background-color: #fff;
+  height: 100px;
+}
+#logoAndSearch .wrap {
+  position: relative;
+  width: 1090px;
+  height: 100px;
+  margin: 0 auto;
+}
+#logoAndSearch .left {
+  height: 65px;
+  width: 330px;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  background-image: url('../img/logoAndSearch/logo.png');
+  background-repeat: no-repeat;
+  background-size: auto 65px;
+}
+#logoAndSearch .center {
+  position: absolute;
+  left: 343px;
+  top: 33px;
+  width: 510px;
+  height: 40px;
+  padding-left: 1px;
+  background-color: #ff2337;
+  border-radius: 40px;
+}
+#logoAndSearch .center .wrap {
+  height: 36px;
+  width: 508px;
+  position: relative;
+  background-color: #fff;
+  margin: 2px 1px;
+  border-radius: 36px;
+}
+#logoAndSearch .center .wrap input {
+  width: 410px;
+  height: 24px;
+  line-height: 24px;
+  border: 0;
+  font-size: 13px;
+  font-style: italic;
+  margin: 6px 0 6px 28px;
+  outline: none;
+}
+#logoAndSearch .center .wrap a {
+  display: inline-block;
+  width: 60px;
+  height: 36px;
+  background: #ff2337;
+  background-image: linear-gradient(270deg, #ff2e64, #ff0003);
+  border-radius: 36px;
+  position: absolute;
+  right: -1px;
+  top: 0;
+}
+#logoAndSearch .center .wrap a:hover {
+  background: #ff2d59;
+  background-image: linear-gradient(270deg, #f85a7d, #ff3234);
+}
+
+#logoAndSearch .center .wrap a .ricon {
+  display: inline-block;
+  height: 36px;
+  width: 48px;
+  line-height: 36px;
+  text-align: center;
+  background-image: url('../img/logoAndSearch/serarchIcon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#logoAndSearch .center .wrap .licon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(0, -50%);
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-image: url('../img/sprite/sprite.png');
+  background-repeat: no-repeat;
+  background-position: -466px -667px;
+}
+#logoAndSearch .right a {
+  display: block;
+  position: absolute;
+  right: 76px;
+  top: 33px;
+  width: 106px;
+  height: 36px;
+  background-color: #fff;
+  line-height: 36px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 36px;
+  border: 2px solid #ff1e32;
+  background-image: url();
+}
+
+#logoAndSearch .right a:hover {
+  background-color: #fff4f5;
+}
+#logoAndSearch .right a .cartIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+  margin-bottom: -5px;
+  background: url('../img/logoAndSearch/cart.png') no-repeat 0 0;
+}
